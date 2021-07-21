@@ -145,7 +145,7 @@ namespace senai_lovePets_webApi.Controllers
             }
         }
 
-        [Authorize("2, 3")]
+        [Authorize(Roles = "2, 3")]
         [HttpGet("meus")]
         public IActionResult ListarMeus()
         {

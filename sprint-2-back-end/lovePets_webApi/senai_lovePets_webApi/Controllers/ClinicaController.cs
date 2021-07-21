@@ -35,7 +35,7 @@ namespace senai_lovePets_webApi.Controllers
         }
 
         [Authorize(Roles = "1")]
-        [HttpGet("{idAtendimento}")]
+        [HttpGet("{idClinica}")]
 
         public IActionResult BuscarPorId(int idClinica)
         {
@@ -49,7 +49,7 @@ namespace senai_lovePets_webApi.Controllers
             }
         }
 
-        Authorize(Roles = "1")]
+        [Authorize(Roles = "1")]
         [HttpPut("{idClinica}")]
         public IActionResult Atualizar(int idClinica, Clinica clinicaAtualizada)
         {

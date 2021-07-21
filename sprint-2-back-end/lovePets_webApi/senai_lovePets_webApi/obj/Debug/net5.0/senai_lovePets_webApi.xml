@@ -45,6 +45,35 @@
             </summary>
             <returns>Um status code 204 - No Content</returns>
         </member>
+        <member name="M:senai_lovePets_webApi.Controllers.VeterinarioController.BuscarPorId(System.Int32)">
+            <summary>
+            Busca um atendimento através do seu ID
+            </summary>
+            <param name="idVeterinario">ID do atendimento que será buscado</param>
+            <returns>Um atendimento encontrado com o status code 200 - Ok</returns>
+        </member>
+        <member name="M:senai_lovePets_webApi.Controllers.VeterinarioController.Cadastrar(senai_lovePets_webApi.Domains.Veterinario)">
+            <summary>
+            Cadastra um novo atendimento
+            </summary>
+            <param name="novoVeterinario">Objeto com as novas informações</param>
+            <returns>Um status code 201 - Created</returns>
+        </member>
+        <member name="M:senai_lovePets_webApi.Controllers.VeterinarioController.Atualizar(System.Int32,senai_lovePets_webApi.Domains.Veterinario)">
+            <summary>
+            Atualiza um atendimento
+            </summary>
+            <param name="idVeterinario">ID do atendimento que será atualizado</param>
+            <param name="veterinarioAtualizado">Objeto com as novas informações</param>
+            <returns>Um status code 204 - No Content</returns>
+        </member>
+        <member name="M:senai_lovePets_webApi.Controllers.VeterinarioController.Deletar(System.Int32)">
+            <summary>
+            Deleta um atendimento existente
+            </summary>
+            <param name="idVeterinario">ID do atendimento que será deletado</param>
+            <returns>Um status code 204 - No Content</returns>
+        </member>
         <member name="M:senai_lovePets_webApi.Interfaces.IAtendimentoRepository.ListarTodos">
             <summary>
             Lista todos os atendimentos
@@ -90,6 +119,14 @@
             </summary>
             <param name="idAtendimento">ID do atendimento que terá a situação alterada</param>
             <param name="novoIdSituacao">ID da nova situação</param>
+        </member>
+        <member name="M:senai_lovePets_webApi.Interfaces.IUsuarioRepository.BuscarPorEmailSenha(System.String,System.String)">
+            <summary>
+            Busca um usuário existente através do seu e-mail e sua senha
+            </summary>
+            <param name="email">O valor do e-mail digitado pelo usuário</param>
+            <param name="senha">O valor da senha digitada pelo usuário</param>
+            <returns>Um usuário encontrado</returns>
         </member>
         <member name="F:senai_lovePets_webApi.Repositories.AtendimentoRepository.ctx">
             <summary>
@@ -141,6 +178,14 @@
             Lista todos os atendimentos
             </summary>
             <returns>Uma lista de atendimentos</returns>
+        </member>
+        <member name="M:senai_lovePets_webApi.Repositories.UsuarioRepository.BuscarPorEmailSenha(System.String,System.String)">
+            <summary>
+            Busca um usuário existente através do seu e-mail e sua senha
+            </summary>
+            <param name="email">O valor do e-mail digitado pelo usuário</param>
+            <param name="senha">O valor da senha digitada pelo usuário</param>
+            <returns>Um usuário encontrado</returns>
         </member>
     </members>
 </doc>
