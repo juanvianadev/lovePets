@@ -23,6 +23,7 @@ namespace senai_lovePets_webApi.Controllers
         {
             _petRepository = new PetRepository();
         }
+
         [Authorize(Roles = "1")]
         [HttpGet]
         public IActionResult ListarTodos()

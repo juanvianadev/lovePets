@@ -12,12 +12,54 @@ namespace senai_lovePets_webApi.Repositories
     {
         lovePetsContext ctx = new lovePetsContext();
 
-        /// <summary>
-        /// Busca um usuário existente através do seu e-mail e sua senha
-        /// </summary>
-        /// <param name="email">O valor do e-mail digitado pelo usuário</param>
-        /// <param name="senha">O valor da senha digitada pelo usuário</param>
-        /// <returns>Um usuário encontrado</returns>
+        public void Atualizar(int id, Usuario usuarioAtualizado)
+        {
+            // Busca um usuário através do id
+            Usuario usuarioBuscado = ctx.Usuarios.Find(id);
+
+            // Verifica se o e-mail do usuário foi informado
+            if (usuarioAtualizado.Email != null)
+            {
+                // Atribui os novos valores ao campos existentes
+                usuarioBuscado.Email = usuarioAtualizado.Email;
+            }
+
+            // Verifica se a senha do usuário foi informado
+            if (usuarioAtualizado.Senha != null)
+            {
+                // Atribui os novos valores ao campos existentes
+                usuarioBuscado.Senha = usuarioAtualizado.Senha;
+            }
+
+            ctx.Usuarios.Update(usuarioBuscado);
+
+            ctx.SaveChanges();
+        }
+
+        public Usuario BuscarPorId(int idUsuario)
+        {
+            return ctx.Usuarios.Find(idUsuario);
+        }
+
+        public void Cadastrar(Usuario novoUsuario)
+        {
+            ctx.Usuarios.Add(novoUsuario);
+
+            ctx.SaveChanges();
+        }
+
+        public void Deletar(int id)
+        {
+            ctx.Usuarios.Remove(BuscarPorId(id));
+
+            ctx.SaveChanges();
+        }
+
+        public List<Usuario> Listar()
+        {
+            return ctx.Usuarios.ToList();
+        }
+
         public Usuario BuscarPorEmailSenha(string email, string senha)
         {
             return ctx.Usuarios.FirstOrDefault(u => u.Email == email && u.Senha == senha);
