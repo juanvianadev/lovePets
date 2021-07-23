@@ -225,13 +225,30 @@ export default class Atendimentos extends Component{
               
             </select>
 
-            <input 
+            <select
+              name="idPet"
+              value={this.state.idPet}
+              onChange={this.atualizaStateCampo}
+            >
+              <option value="0">Selecione o Pet</option>
+
+              {
+                this.state.listaPets.map( (pet) => {
+                  return(
+                    <option key={pet.idPet} value={pet.idPet}>{pet.nomePet} - {pet.ra}</option>
+                  )
+                } )
+              }
+              
+            </select>
+
+            {/* <input 
               // Pet
               type="number"
               name="idPet"
               value={this.state.idPet}
               onChange={this.atualizaStateCampo}
-            />
+            /> */}
 
             <input 
               // Descrição
